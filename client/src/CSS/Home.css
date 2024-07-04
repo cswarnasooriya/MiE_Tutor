@@ -1,0 +1,39 @@
+.hero{
+    display: flex;
+    background-color: #301934;
+    color: #ffc107;
+    height: 92vh;
+    padding-inline: 30px;
+}
+
+.hero-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+
+.hero-text{
+    font-size: 3.4rem;
+    margin-bottom: 22px;
+    word-spacing: 1%;
+    font-weight: bolder;
+    
+}
+
+.hero-des{
+    font-size: 1.2rem;
+    max-width: 400px;
+    margin-bottom: 15px;
+    font-family: cursive;
+    
+}
+
+.hero-img{
+    flex: 1;
+    background: url('images/hero.png') center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+
+}
