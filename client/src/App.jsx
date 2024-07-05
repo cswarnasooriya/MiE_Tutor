@@ -3,6 +3,7 @@ import Courses from './components/Courses'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
+import Dashboard from './components/Dashboard'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/courses' element={<Courses/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
       </Routes>
 
     </BrowserRouter>
