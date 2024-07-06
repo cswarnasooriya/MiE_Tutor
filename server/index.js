@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import {AdminRouter} from './routes/auth.js';
-import { connection } from './db.js';
+import './db.js';
 
 const app = express();
 
@@ -24,4 +24,3 @@ app.listen(process.env.PORT, () => {
     console.log(`App is running on port ${process.env.PORT}`);
 })
 
-connection();

@@ -16,7 +16,7 @@ router.post('/login', async(req,res) => {
     if(role === 'admin'){
         const admin = await Admin.findOne({username})
         if(!admin) {
-            res.json({message: "admin not registered!"});
+            return  res.json({message: "admin not registered!"});
         }
 
         const validPassword = await bcrypt.compare(password, admin.password)
