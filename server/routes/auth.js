@@ -11,7 +11,8 @@ dotenv.config();
 const router = express.Router();
 
 router.post('/login', async(req,res) => {
-    const {username, password, role} = req.body;
+    try{
+        const {username, password, role} = req.body;
 
     if(role === 'admin'){
         const admin = await Admin.findOne({username})
@@ -34,6 +35,9 @@ router.post('/login', async(req,res) => {
 
     }else{
 
+    }
+    }catch(err){
+        res.json({message: "Error"})
     }
 })
 
