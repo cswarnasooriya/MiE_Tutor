@@ -5,10 +5,11 @@ import { Student } from '../models/student.js';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 dotenv.config();
+import { verifyAdmin } from './auth.js';
 
 const router = express.Router();
 
-router.post('/register', async(req, res) => {
+router.post('/register', verifyAdmin, async(req, res) => {
     try{
         const {username, password, faculty, index } = req.body;
         const student = await Student.findOne({username})
@@ -31,6 +32,8 @@ router.post('/register', async(req, res) => {
     }catch(err){
         return res.json({message:  "Error in registering student!"})
     }
+
+    
 
 })
 
