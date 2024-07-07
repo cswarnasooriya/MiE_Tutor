@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../CSS/AddStudent.css';
 import axios from 'axios';
-
+import {useNavigate} from 'react-router-dom'
 
 
 const AddStudent = () => {
@@ -10,11 +10,16 @@ const AddStudent = () => {
     const [index, setIndex] = useState('');
     const [faculty, setFaculty] = useState('');
 
+    const navigate = useNavigate()
+
  
     const handleSubmit = (e)=>{
         e.preventDefault()
         axios.post("http://localhost:4008/student/register",{username, password, faculty, index})
-        .then(res => {console.log(res)
+        .then(res => {
+            if(res.data.registered){
+                navigate('/dashboard')
+            }
           
           
         })
