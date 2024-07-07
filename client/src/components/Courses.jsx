@@ -3,7 +3,7 @@
 const Courses = () => {
   return (
     <div>
-      Courses
+      Courses in here
     </div>
   )
 }
