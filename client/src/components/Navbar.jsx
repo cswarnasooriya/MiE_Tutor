@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import '../CSS/Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({role}) => {
   return (
     <nav className="navbar">
 
@@ -11,10 +11,19 @@ const Navbar = () => {
 
         <div className="navbar-right">
             <Link to="/courses" className="navbar-link">Courses</Link>
-            <Link to="/add-course" className="navbar-link">Add Course</Link>
-            <Link to="/addstudent" className="navbar-link">Add Student</Link>
-            <Link to="/dashboard" className="navbar-link">Dashboard</Link>
-            <Link to="/login" className="navbar-link">Login</Link>
+            {role === 'admin' &&
+            <>
+              <Link to="/add-course" className="navbar-link">Add Course</Link>
+              <Link to="/addstudent" className="navbar-link">Add Student</Link>
+              <Link to="/dashboard" className="navbar-link">Dashboard</Link>
+            </>
+            }
+
+            {role === "" ? 
+              <Link to="/login" className="navbar-link">Login</Link>
+              : <Link to="/logout" className="navbar-link">Logout</Link>
+            }
+            
             
         </div>
 
