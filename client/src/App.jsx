@@ -8,6 +8,7 @@ import AddStudent from './components/AddStudent'
 import { useEffect, useState } from 'react'
 import Logout from './components/Logout'
 import axios from 'axios'
+import AddCourse from './components/AddCourse'
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/addstudent' element={<AddStudent/>}/>
         <Route path='/logout' element={<Logout setRole= {setRole} />}/>
+        <Route path='/add-course' element={<AddCourse/>}></Route>
 
       </Routes>
 
