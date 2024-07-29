@@ -1,16 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../CSS/AddStudent.css';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 
 
 const EditCourse = () => {
     const [name, setName] = useState('');
     const [instructor, setInstructor] = useState('');
     const [imageUrl, setImageUrl] = useState('');
- 
-
     const navigate = useNavigate()
+    const {id} = useParams();
+
+
+
+    useEffect(() => {
+      axios.get("http://localhost:4008/course/course/"+ id)
+        .then(res => {
+            setName(res.data.name)
+            setInstructor(res.data.instructor)
+            setImageUrl(res.data.imageUrl)
+          
+        })
+        .catch(err => console.log(err))
+    })
+
+
 
  
     const handleSubmit = (e)=>{
@@ -37,22 +51,24 @@ const EditCourse = () => {
 
             <div className="form-group">
                 <label htmlFor="name">Course Name:</label>
-                <input type="text" name="name" id="name"
+                <input type="text" name="name" id="name" value={name}
                 onChange={(e) => setName(e.target.value)} />
-            </div>
+            </div> 
+
             <div className="form-group">
                 <label htmlFor="instructor">Instructor Name:</label>
-                <input type="text" name="instructor" id="instructor"
+                <input type="text" name="instructor" id="instructor" value={instructor}
                 onChange={(e) => setInstructor(e.target.value)} />
             </div>
+
             <div className="form-group">
                 <label htmlFor="faculty">Image:</label>
-                <input type="text" name="imageUrl" id="imageUrl"
+                <input type="text" name="imageUrl" id="imageUrl" value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)} />
             </div>
         
 
-            <button className='btn-register' type="submit">Add</button>
+            <button className='btn-register' type="submit">Done</button>
 
         </form>
       

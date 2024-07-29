@@ -38,4 +38,16 @@ router.get('/courses', async (req,res) => {
     }
 })
 
+router.get('/course/:id', async(req,res) => {
+    try{
+        const id = req.params.id;
+        const course = await Course.findById({_id: id})
+        return res.json(course)
+        
+    }catch(err){
+        return res.json(err);
+    }
+   
+})
+
 export {router as courseRouter}
