@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import Logout from './components/Logout'
 import axios from 'axios'
 import AddCourse from './components/AddCourse'
+import EditCourse from './components/EditCourse'
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path='/addstudent' element={<AddStudent/>}/>
         <Route path='/logout' element={<Logout setRole= {setRole} />}/>
         <Route path='/add-course' element={<AddCourse/>}></Route>
+        <Route path='/course/:id' element={<EditCourse/>}></Route>
 
       </Routes>
 

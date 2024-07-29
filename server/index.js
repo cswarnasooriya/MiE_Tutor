@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import './db.js';
 import {AdminRouter} from './routes/auth.js';
 import { studentRouter } from './routes/student.js';
-
+import { courseRouter } from './routes/course.js';
 
 
 const app = express();
@@ -21,7 +21,8 @@ app.use(cookieParser());
 dotenv.config();
 
 app.use('/auth', AdminRouter);
-app.use('/student', studentRouter)
+app.use('/student', studentRouter);
+app.use('/course', courseRouter);
 
 
 app.listen(process.env.PORT, () => {

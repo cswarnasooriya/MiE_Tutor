@@ -4,7 +4,7 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
 
-const AddCourse = () => {
+const EditCourse = () => {
     const [name, setName] = useState('');
     const [instructor, setInstructor] = useState('');
     const [imageUrl, setImageUrl] = useState('');
@@ -33,7 +33,7 @@ const AddCourse = () => {
   return (
     <div className="student-form-container">
         <form className="student-form" onSubmit={handleSubmit}>
-            <h2>Add Course</h2>
+            <h2>Edit Course</h2>
 
             <div className="form-group">
                 <label htmlFor="name">Course Name:</label>
@@ -60,4 +60,5 @@ const AddCourse = () => {
   )
 }
 
-export default AddCourse
+export default EditCourse
+
