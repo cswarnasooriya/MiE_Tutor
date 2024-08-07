@@ -3,7 +3,7 @@ import '../CSS/Book.css';
 
 const CourseCart = ({course}) => {
 
-    const {name, instructor, imageUrl, _id} = course;
+    const {name, instructor, imageUrl} = course;
 
   return (
     <div className="course-card">

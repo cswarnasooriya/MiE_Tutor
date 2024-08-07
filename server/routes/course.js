@@ -41,13 +41,13 @@ router.get('/courses', async (req,res) => {
 router.get('/course/:id', async(req,res) => {
     try{
         const id = req.params.id;
-        const course = await Course.findById({_id: id})
-        return res.json(course)
+        const course = await Course.findByIdAndUpdate({_id: id}, req.body)
+        return res.json({updated: true, course})
         
-    }catch(err){
+    }catch(err){s
         return res.json(err);
     }
    
 })
 
-export {router as courseRouter}
+export {router as courseRouter} 

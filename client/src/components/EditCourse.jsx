@@ -29,9 +29,9 @@ const EditCourse = () => {
  
     const handleSubmit = (e)=>{
         e.preventDefault()
-        axios.post("http://localhost:4008/course/add",{name, imageUrl, instructor})
+        axios.put("http://localhost:4008/course/course/"+ id,{name, imageUrl, instructor})
         .then(res => {
-            if(res.data.added){
+            if(res.data.updated){
               navigate('/courses')
             }else{
               console.log(res)
