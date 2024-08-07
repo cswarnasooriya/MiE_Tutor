@@ -48,3 +48,8 @@
         background-color: #2980b9;
     }
 }
+
+.course-card .btn-link {
+    text-decoration: none;
+    color: white;
+}

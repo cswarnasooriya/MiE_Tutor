@@ -15,8 +15,8 @@ const CourseCart = ({course}) => {
         </div>
 
         <div className="course-actions">
-            <button><Link to={`/course/${course._id}`}>Edit</Link></button>
-            <button>Delete</button>
+            <button><Link to={`/course/${course._id}`} className='btn-link'>Edit</Link></button>
+            <button><Link to={`/delete/${course._id}`} className='btn-link'>Delete</Link></button>
         </div>
        
 

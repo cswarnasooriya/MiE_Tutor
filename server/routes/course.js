@@ -41,13 +41,43 @@ router.get('/courses', async (req,res) => {
 router.get('/course/:id', async(req,res) => {
     try{
         const id = req.params.id;
-        const course = await Course.findByIdAndUpdate({_id: id}, req.body)
-        return res.json({updated: true, course})
+        const course = await Course.findById({_id: id})
+        // return res.json({updated: true, course})
+        return res.json(course)
         
     }catch(err){s
         return res.json(err);
     }
    
+})
+
+//update data routing path
+
+router.put('/course/:id', async(req,res) => {
+    try{
+        const id = req.params.id;
+        const course = await Course.findByIdAndUpdate({_id: id}, req.body)
+        return res.json({updated: true, course})
+       
+        
+    }catch(err){
+        return res.json(err);
+    }
+   
+})
+
+//delete courses
+
+router.delete('/course/:id', async(req, res) => {
+    try{
+        const id = req.params.id;
+        const course = await Course.findByIdAndDelete({_id: id})
+        return res.json({deleted: true, course})
+       
+        
+    }catch(err){
+        return res.json(err);
+    }
 })
 
 export {router as courseRouter} 

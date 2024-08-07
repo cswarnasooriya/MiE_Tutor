@@ -22,9 +22,7 @@ const EditCourse = () => {
           
         })
         .catch(err => console.log(err))
-    })
-
-
+    }, [])
 
  
     const handleSubmit = (e)=>{
